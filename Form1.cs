@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace AdressBook
 {
@@ -23,15 +24,47 @@ namespace AdressBook
         #region methods for objects
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            //tworzenie folderu oraz pliku w wyznaczonym miejscu (w przypadku gdy nie istnieją)
             string path = "C:\\Users\\Kuba\\Desktop";
-            if (!Directory.Exists(path + "\\AddressBook123"))
+            if (!Directory.Exists(path + "\\abba"))
             {
-                Directory.CreateDirectory(path + "\\AddressBook123");
+                Directory.CreateDirectory(path + "\\abba");
             }
-            if (!File.Exists(path + "\\AddressBook123\\contacts.xml"))
+
+            
+            if (File.Exists(path + "\\abba\\mnm.xml"))
             {
-                File.Create(path + "\\AddressBook123\\contacts.xml");
+                XmlDocument xDoc1 = new XmlDocument();
+
+                //Ładowanie zapisanych kontaktów z pliku xml
+                xDoc1.Load(path + "\\abba\\mnm.xml");
+
+                foreach (XmlNode xNode in xDoc1.SelectNodes("Osoby/Osoba"))
+                {
+                    Osoba o = new Osoba();
+                    o.Imie = xNode.SelectSingleNode("Imie").InnerText;
+                    o.Email = xNode.SelectSingleNode("Email").InnerText;
+                    o.Ulica = xNode.SelectSingleNode("Ulica").InnerText;
+                    o.Firma = xNode.SelectSingleNode("Firma").InnerText;
+                    o.DataUrodzenia = DateTime.FromFileTime(Convert.ToInt64(xNode.SelectSingleNode("Dataurodzenia").InnerText));
+                    o.DodatkoweInformacje = xNode.SelectSingleNode("DodatkoweInformacje").InnerText;
+                    osoby.Add(o);
+                    listView1.Items.Add(o.Imie + " " + o.Firma);
+
+                }
             }
+            else
+            {
+                
+                    XmlTextWriter xW = new XmlTextWriter(path + "\\abba\\mnm.xml", Encoding.UTF8);
+                    xW.WriteStartElement("Osoby");
+                    xW.WriteEndElement();
+                    xW.Close();
+                
+            }
+            
+
         }
 
         private void Label3_Click(object sender, EventArgs e)
@@ -66,11 +99,11 @@ namespace AdressBook
             o.DodatkoweInformacje = textBox5.Text;
             osoby.Add(o);
             listView1.Items.Add(o.Imie +" "+  o.Firma);
-            textBox1.Text = string.Empty;
-            textBox2.Text = string.Empty;
-            textBox3.Text = string.Empty;
-            textBox4.Text = string.Empty;
-            textBox5.Text = string.Empty;
+            textBox1.Text ="";  //string.Empty;
+            textBox2.Text ="";  //string.Empty;
+            textBox3.Text ="";  //string.Empty;
+            textBox4.Text ="";  //string.Empty;
+            textBox5.Text = "";     //string.Empty; 
             dateTimePicker1.Value = DateTime.Now;
         }
 
@@ -79,9 +112,9 @@ namespace AdressBook
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+           try
             {
 
                 textBox1.Text = osoby[listView1.SelectedItems[0].Index].Imie;
@@ -91,13 +124,11 @@ namespace AdressBook
                 textBox5.Text = osoby[listView1.SelectedItems[0].Index].DodatkoweInformacje;
                 dateTimePicker1.Value = osoby[listView1.SelectedItems[0].Index].DataUrodzenia;
 
-            }
-            catch
-            {
+           }
+           catch
+           {
 
-            }
-
-
+           }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -108,13 +139,22 @@ namespace AdressBook
         {
             try
             {
-                listView1.Items.Remove(listView1.SelectedItems[0]);
+                // listView1.Items.Remove(listView1.SelectedItems[0]);
+                // osoby.RemoveAt(listView1.SelectedItems[0].Index);
+
                 osoby.RemoveAt(listView1.SelectedItems[0].Index);
 
+                listView1.Items.Remove(listView1.SelectedItems[0]);
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
             }
             catch 
             {
-
+               
             }
         }
 
@@ -131,9 +171,47 @@ namespace AdressBook
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            XmlDocument xDoc = new XmlDocument();
-            string path = "C:\\Users\\Kuba\\Desktop";
-            xDoc.Load(path + "\\AddressBook123\\contacts.xml");
+            
+                XmlDocument xDoc = new XmlDocument();
+                string path = "C:\\Users\\Kuba\\Desktop";
+                xDoc.Load(path + "\\abba\\mnm.xml");
+
+                //pozbywanie sie istniejących osób w pliku w celu uniknięcia duplikatów
+                XmlNode xNode = xDoc.SelectSingleNode("Osoby");
+                xNode.RemoveAll();
+
+                //wpisywanie istniejących osób do listy
+                foreach (Osoba o in osoby)
+                {
+                    //tworzenie node'ów
+                    XmlNode xTop = xDoc.CreateElement("Osoba");
+                    XmlNode xImie = xDoc.CreateElement("Imie");
+                    XmlNode xEmail = xDoc.CreateElement("Email");
+                    XmlNode xUlica = xDoc.CreateElement("Ulica");
+                    XmlNode xFirma = xDoc.CreateElement("Firma");
+                    XmlNode xDodatkoweInformacje = xDoc.CreateElement("DodatkoweInformacje");
+                    XmlNode xDataUrodzenia = xDoc.CreateElement("Dataurodzenia");
+
+                    //wypełnianie node'ów
+                    xImie.InnerText = o.Imie;
+                    xEmail.InnerText = o.Email;
+                    xUlica.InnerText = o.Ulica;
+                    xFirma.InnerText = o.Firma;
+                    xDodatkoweInformacje.InnerText = o.DodatkoweInformacje;
+                    xDataUrodzenia.InnerText = o.DataUrodzenia.ToFileTime().ToString(); //kowertowanie daty do zmiennej liczbowej, a następnie do stringa
+
+                    //składowanie wszystkich nodów w node osoba
+                    xTop.AppendChild(xImie);
+                    xTop.AppendChild(xEmail);
+                    xTop.AppendChild(xUlica);
+                    xTop.AppendChild(xFirma);
+                    xTop.AppendChild(xDodatkoweInformacje);
+                    xTop.AppendChild(xDataUrodzenia);
+
+                    //składowanie noda osoba zawierającego poprzednie node'y w dokumencie osoby
+                    xDoc.DocumentElement.AppendChild(xTop);
+                }
+                xDoc.Save(path + "\\abba\\mnm.xml");                  
         }
     }
 
