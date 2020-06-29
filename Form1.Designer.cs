@@ -47,27 +47,39 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.Kontakty.SuspendLayout();
             this.Informacje.SuspendLayout();
             this.SuspendLayout();
             // 
             // Kontakty
             // 
+            this.Kontakty.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Kontakty.BackgroundImage")));
             this.Kontakty.Controls.Add(this.listView1);
             this.Kontakty.Location = new System.Drawing.Point(12, 12);
+            this.Kontakty.Margin = new System.Windows.Forms.Padding(1);
             this.Kontakty.Name = "Kontakty";
             this.Kontakty.Size = new System.Drawing.Size(219, 407);
             this.Kontakty.TabIndex = 0;
             this.Kontakty.TabStop = false;
             this.Kontakty.Tag = "";
-            this.Kontakty.Text = "Kontakty";
             // 
             // listView1
             // 
+            this.listView1.AccessibleRole = System.Windows.Forms.AccessibleRole.List;
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listView1.AllowColumnReorder = true;
+            this.listView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listView1.ForeColor = System.Drawing.Color.Black;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 22);
+            this.listView1.HoverSelection = true;
+            this.listView1.LabelWrap = false;
+            this.listView1.Location = new System.Drawing.Point(14, 88);
+            this.listView1.Margin = new System.Windows.Forms.Padding(0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(207, 379);
+            this.listView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.listView1.Size = new System.Drawing.Size(191, 258);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -75,6 +87,8 @@
             // 
             // Informacje
             // 
+            this.Informacje.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Informacje.Controls.Add(this.button4);
             this.Informacje.Controls.Add(this.button3);
             this.Informacje.Controls.Add(this.button2);
             this.Informacje.Controls.Add(this.button1);
@@ -92,7 +106,7 @@
             this.Informacje.Controls.Add(this.label1);
             this.Informacje.Location = new System.Drawing.Point(237, 12);
             this.Informacje.Name = "Informacje";
-            this.Informacje.Size = new System.Drawing.Size(345, 407);
+            this.Informacje.Size = new System.Drawing.Size(345, 372);
             this.Informacje.TabIndex = 0;
             this.Informacje.TabStop = false;
             this.Informacje.Text = "Informacje";
@@ -101,7 +115,7 @@
             // button3
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(287, 312);
+            this.button3.Location = new System.Drawing.Point(117, 314);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(55, 55);
@@ -123,7 +137,7 @@
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(146, 312);
+            this.button1.Location = new System.Drawing.Point(62, 314);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(55, 55);
@@ -133,6 +147,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.textBox5.Location = new System.Drawing.Point(7, 194);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
@@ -233,11 +248,22 @@
             this.label1.Text = "Imie i Nazwisko";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(175, 314);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(163, 55);
+            this.button4.TabIndex = 7;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 431);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(594, 494);
             this.Controls.Add(this.Informacje);
             this.Controls.Add(this.Kontakty);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -274,6 +300,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button4;
     }
 }
 

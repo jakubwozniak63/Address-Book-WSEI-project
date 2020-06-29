@@ -171,7 +171,12 @@ namespace AdressBook
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            DialogResult confirm = MessageBox.Show("Na pewno chcesz zakończyć", "Zakońćz", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+
+
+
                 XmlDocument xDoc = new XmlDocument();
                 string path = "C:\\Users\\Kuba\\Desktop";
                 xDoc.Load(path + "\\abba\\mnm.xml");
@@ -211,7 +216,12 @@ namespace AdressBook
                     //składowanie noda osoba zawierającego poprzednie node'y w dokumencie osoby
                     xDoc.DocumentElement.AppendChild(xTop);
                 }
-                xDoc.Save(path + "\\abba\\mnm.xml");                  
+                xDoc.Save(path + "\\abba\\mnm.xml");
+            }
+            else if (confirm == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 
