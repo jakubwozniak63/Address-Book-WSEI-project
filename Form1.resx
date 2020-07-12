@@ -61,7 +61,7 @@
   <data name="Kontakty.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAANsAAAGXCAYAAAA6biXjAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6+AAAOvgHqQrHAAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA68AAAOvAGVvHJJAAAAB3RJ
         TUUH5AYbDhIcLzLXnAAAITZJREFUeF7tnYd7FNX6x39/hdfr9V4bXUAIKOVSgljocFGaolIFpAtKFSnS
         Egiht9CkFynSu6AoRUAsYIHQDFUpoSj1/c337J4w2UzIbsqbTfb7eZ7vsySZmd055/3MOTO7O/yfEEJU
         oGyEKEHZCFGCshGiBGUjRAnKRogSlI0QJSJatvv378u9e/fk7t27cufOHbl165b8/fffJjdv3jS5ceOG
@@ -888,7 +888,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAmIAAAIVCAYAAABycZOfAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s3QV8FNfaBnDq7b29bb/eyq0bUtzd3S0hEHcCCQGCJjgEd3d3d5cW
+        vAAADrwBlbxySQAA/7JJREFUeF7s3QV8FNfaBnDq7b29bb/eyq0bUtzd3S0hEHcCCQGCJjgEd3d3d5cW
         aynFNbi7Sxx7vved3YElSPGB9vm357eSNXZnznnmzJkzyUBERERElmAQIyIiIrIIgxgRERGRRRjEiIiI
         iCzCIEZERERkEQYxIiIiIoswiBERERFZhEGMiIiIyCIMYkREREQWYRAjIiIisgiDGBEREZFFGMSIiIiI
         LMIgRkRERGQRBjEiIiIiizCIEREREVmEQYyIiIjIIgxiRERERBZhECMiIiKyCIMYERERkUUYxIiIiIgs

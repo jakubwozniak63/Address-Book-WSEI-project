@@ -14,3 +14,5 @@ C:\Users\Kuba\source\repos\AdressBook\AdressBook\obj\Debug\netcoreapp3.1\AdressB
 C:\Users\Kuba\source\repos\AdressBook\AdressBook\obj\Debug\netcoreapp3.1\AdressBook.pdb
 C:\Users\Kuba\source\repos\AdressBook\AdressBook\obj\Debug\netcoreapp3.1\AdressBook.genruntimeconfig.cache
 C:\Users\Kuba\source\repos\AdressBook\AdressBook\obj\Debug\netcoreapp3.1\AdressBook.Properties.Resources.resources
+C:\Users\Kuba\source\repos\AdressBook\AdressBook\obj\Debug\netcoreapp3.1\AdressBook.Form2.resources
+C:\Users\Kuba\source\repos\AdressBook\AdressBook\obj\Debug\netcoreapp3.1\AdressBook.Form3.resources

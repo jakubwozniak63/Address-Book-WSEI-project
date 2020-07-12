@@ -27,18 +27,18 @@ namespace AdressBook
             
             //tworzenie folderu oraz pliku w wyznaczonym miejscu (w przypadku gdy nie istnieją)
             string path = "C:\\Users\\Kuba\\Desktop";
-            if (!Directory.Exists(path + "\\abba"))
+            if (!Directory.Exists(path + "\\Kontakty"))
             {
-                Directory.CreateDirectory(path + "\\abba");
+                Directory.CreateDirectory(path + "\\Kontakty");
             }
 
             
-            if (File.Exists(path + "\\abba\\mnm.xml"))
+            if (File.Exists(path + "\\Kontakty\\ListaKontaktow.xml"))
             {
                 XmlDocument xDoc1 = new XmlDocument();
 
                 //Ładowanie zapisanych kontaktów z pliku xml
-                xDoc1.Load(path + "\\abba\\mnm.xml");
+                xDoc1.Load(path + "\\Kontakty\\ListaKontaktow.xml");
 
                 foreach (XmlNode xNode in xDoc1.SelectNodes("Osoby/Osoba"))
                 {
@@ -57,7 +57,7 @@ namespace AdressBook
             else
             {
                 
-                    XmlTextWriter xW = new XmlTextWriter(path + "\\abba\\mnm.xml", Encoding.UTF8);
+                    XmlTextWriter xW = new XmlTextWriter(path + "\\Kontakty\\ListaKontaktow.xml", Encoding.UTF8);
                     xW.WriteStartElement("Osoby");
                     xW.WriteEndElement();
                     xW.Close();
@@ -179,7 +179,7 @@ namespace AdressBook
 
                 XmlDocument xDoc = new XmlDocument();
                 string path = "C:\\Users\\Kuba\\Desktop";
-                xDoc.Load(path + "\\abba\\mnm.xml");
+                xDoc.Load(path + "\\Kontakty\\ListaKontaktow.xml");
 
                 //pozbywanie sie istniejących osób w pliku w celu uniknięcia duplikatów
                 XmlNode xNode = xDoc.SelectSingleNode("Osoby");
@@ -216,12 +216,24 @@ namespace AdressBook
                     //składowanie noda osoba zawierającego poprzednie node'y w dokumencie osoby
                     xDoc.DocumentElement.AppendChild(xTop);
                 }
-                xDoc.Save(path + "\\abba\\mnm.xml");
+                xDoc.Save(path + "\\Kontakty\\ListaKontaktow.xml");
             }
             else if (confirm == DialogResult.No)
             {
                 e.Cancel = true;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form3 f3 = new Form3();
+            f3.ShowDialog();
         }
     }
 

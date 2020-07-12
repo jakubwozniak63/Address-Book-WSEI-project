@@ -32,6 +32,8 @@
             this.Kontakty = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Informacje = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,7 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.Kontakty.SuspendLayout();
             this.Informacje.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +89,7 @@
             // Informacje
             // 
             this.Informacje.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Informacje.Controls.Add(this.button5);
             this.Informacje.Controls.Add(this.button4);
             this.Informacje.Controls.Add(this.button3);
             this.Informacje.Controls.Add(this.button2);
@@ -111,6 +113,26 @@
             this.Informacje.TabStop = false;
             this.Informacje.Text = "Informacje";
             this.Informacje.Enter += new System.EventHandler(this.Informacje_Enter);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(110, 162);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(228, 23);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Lista firm";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(175, 314);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(163, 55);
+            this.button4.TabIndex = 7;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -148,10 +170,10 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.textBox5.Location = new System.Drawing.Point(7, 194);
+            this.textBox5.Location = new System.Drawing.Point(7, 206);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(331, 114);
+            this.textBox5.Size = new System.Drawing.Size(331, 102);
             this.textBox5.TabIndex = 5;
             // 
             // textBox4
@@ -174,7 +196,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 176);
+            this.label5.Location = new System.Drawing.Point(7, 188);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 15);
             this.label5.TabIndex = 3;
@@ -248,24 +270,16 @@
             this.label1.Text = "Imie i Nazwisko";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // button4
-            // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(175, 314);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(163, 55);
-            this.button4.TabIndex = 7;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(594, 494);
             this.Controls.Add(this.Informacje);
             this.Controls.Add(this.Kontakty);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -301,6 +315,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 
